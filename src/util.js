@@ -27,7 +27,7 @@ const allowedMasks = {
   }
 }
 
-const isMask = char => allowedMasks.hasOwnProperty(char)
+const isMask = char => Object.prototype.hasOwnProperty.call(allowedMasks, char)
 
 const convert = (mask, char) => allowedMasks[mask].convert ? allowedMasks[mask].convert(char) : char
 

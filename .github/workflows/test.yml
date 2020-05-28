@@ -1,0 +1,59 @@
+name: Build and Test
+
+on: [push, pull_request]
+
+jobs:
+  unit:
+    name: Unit tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+        registry-url: 'https://npm.pkg.github.com'
+    - uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
+        CYPRESS_INSTALL_BINARY: 0
+    - run: npm test
+    - uses: actions/upload-artifact@v1
+      if: failure()
+      with:
+        name: coverage
+        path: coverage
+    - run: bash <(curl -s https://codecov.io/bash)
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        REF: ${{ github.ref }}
+        SHA: ${{ github.sha }}
+
+  lint:
+    if: github.event_name != 'pull_request'
+    name: ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+        registry-url: 'https://npm.pkg.github.com'
+    - uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
+        CYPRESS_INSTALL_BINARY: 0
+    - run: npx eslint . --ext .js,.vue

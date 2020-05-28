@@ -33,9 +33,15 @@ export default Vue.extend({
 
   props: {
     dontFillMaskBlanks: Boolean,
-    mask: String,
+    mask: {
+      type: String,
+      default: null
+    },
     returnMaskedValue: Boolean,
-    value: null
+    value: {
+      type: [String, Number],
+      default: null
+    }
   },
 
   data () {

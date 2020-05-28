@@ -44,12 +44,6 @@ describe('mask.js', () => {
     expect(maskText('a', '#a')).toBe('')
   })
 
-  /* Not sure how to implement this
-  it('should not fill in delimiter value if it does not match', () => {
-    expect(maskText('a', '(')).toBe('')
-  })
-  */
-
   it('should fill last characters if they are all delimiters', () => {
     expect(maskText('1', '#)')).toBe('1)')
     expect(maskText('123', '(###)!!')).toBe('(123)!!')
