@@ -1,0 +1,33 @@
+{
+  "name": "v-text-field-masked",
+  "version": "0.1.0",
+  "description": "Masking for VTextField in Vuetify 2.0",
+  "license": "MIT",
+  "scripts": {
+    "build:dist": "vue-cli-service build --target lib --name v-text-field-masked ./src/index.js",
+    "prepare": "npm run build:dist",
+    "start": "vue-cli-service serve",
+    "test": "vue-cli-service test:unit"
+  },
+  "main": "dist/v-text-field-masked.common.js",
+  "module": "src/index.js",
+  "devDependencies": {
+    "@maxsystems/team": "^0.1.2",
+    "@vue/cli-plugin-babel": "^4.3.0",
+    "@vue/cli-plugin-unit-jest": "^4.3.0",
+    "@vue/cli-service": "^4.3.0",
+    "@vue/test-utils": "1.0.0-beta.33",
+    "identity-obj-proxy": "^3.0.0",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "vue": "^2.6.11",
+    "vue-cli-plugin-vuetify": "~2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify": "^2.2.30",
+    "vuetify-loader": "^1.3.0"
+  },
+  "peerDependencies": {
+    "vue": "2.x",
+    "vuetify": "2.x"
+  }
+}

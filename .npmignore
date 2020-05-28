@@ -1,0 +1,6 @@
+coverage/
+dist/demo.html
+docs/
+tests/
+.*
+*.config.js

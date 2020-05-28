@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "scope": "maxdigital",
+  "build": {
+    "env": {
+      "DOCS": "true",
+      "GITHUB_TOKEN": "@github-token",
+      "NPM_RC": "//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}\n@maxsystems:registry=https://npm.pkg.github.com/"
+    }
+  },
+  "github": {
+    "silent": true
+  }
+}
