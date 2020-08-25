@@ -1,6 +1,6 @@
 {
   "name": "v-text-field-masked",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Masking for VTextField in Vuetify 2.0",
   "license": "MIT",
   "scripts": {
