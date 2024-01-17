@@ -52,9 +52,9 @@ export default {
               :mask="mask"
               outlined
             />
-            <VSubtitle>
+            <span>
               Value: {{ value }}
-            </VSubtitle>
+            </span>
           </VCardText>
         </VCard>
       </VCol>
