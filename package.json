@@ -4,6 +4,7 @@
   "description": "Masking for VTextField in Vuetify 2.0",
   "license": "MIT",
   "scripts": {
+    "build": "vue-cli-service build",
     "build:dist": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service build --target lib --name v-text-field-masked ./src/index.js",
     "prepare": "npm run build:dist",
     "start": "NODE_OPTIONS=--openssl-legacy-provider vue-cli-service serve",
